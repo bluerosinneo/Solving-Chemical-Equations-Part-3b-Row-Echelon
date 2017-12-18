@@ -1,3 +1,11 @@
+# This code follows the following post.
+# http://cramerexplainsmath.com/2017/12/18/solving-chemical-equations-part-3b-row-echelon/
+# @desc This class offers the means to get an n by m 
+# into a sort of reduced row echelon form for the purpose 
+# of balancing a chemical eqution.  A detailed description of each
+# method can be found in the post
+# @author Cramer Grimes cramergrimes@gmail.com
+
 class rowEchelon:
 	@staticmethod
 	def showMatrix(A):
@@ -12,8 +20,8 @@ class rowEchelon:
 
 	@staticmethod
 	def findMakeBlastPoint(A,blastInfo):
-		for j in range(blastInfo['j'],len(A[0])): #search first down a column to find a non-zero
-			for i in range(blastInfo['i'],len(A)): #will move to the next column to continue search
+		for j in range(blastInfo['j'],len(A[0])): #outer for loop will be for columns
+			for i in range(blastInfo['i'],len(A)): #inner for loop will be for rows
 				if (A[i][j]!=0):
 					if (i!=blastInfo['i']):
 						rowEchelon.swapRow(A,i,blastInfo['i'])
